@@ -16,7 +16,7 @@ return {
   ["williamboman/mason.nvim"] = {
    override_options = {
       ensure_installed = {
-        -- lua stuff
+        -- lua 
         "lua-language-server",
         "stylua",
 
@@ -32,6 +32,12 @@ return {
         "shellcheck",
       },
     },
-  }
+  },
+
+  ["goolord/alpha-nvim"] = {
+    disable = false
+  },
+
+
 
 }
