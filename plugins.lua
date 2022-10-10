@@ -26,6 +26,7 @@ return {
         "typescript-language-server",
         "emmet-ls",
         "json-lsp",
+        "eslint-lsp",
 
         -- shell
         "shfmt",
@@ -37,6 +38,13 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false
   },
+
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+     after = "nvim-lspconfig",
+     config = function()
+       require "custom.plugins.null-ls"
+     end,
+  }
 
 
 
