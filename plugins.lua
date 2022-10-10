@@ -11,6 +11,27 @@ return {
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
     end,
+  },
+
+  ["williamboman/mason.nvim"] = {
+   override_options = {
+      ensure_installed = {
+        -- lua stuff
+        "lua-language-server",
+        "stylua",
+
+        -- web dev
+        "css-lsp",
+        "html-lsp",
+        "typescript-language-server",
+        "emmet-ls",
+        "json-lsp",
+
+        -- shell
+        "shfmt",
+        "shellcheck",
+      },
+    },
   }
 
 }
