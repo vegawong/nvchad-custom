@@ -44,6 +44,26 @@ return {
      config = function()
        require "custom.plugins.null-ls"
      end,
+  },
+
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = function() 
+      return {
+        ensure_installed = {
+          "lua",
+          "help",
+          "typescript",
+          "tsx",
+          "json",
+          "jsonc",
+          "javascript",
+          "jsdoc",
+          "php",
+          "twig",
+          "markdown"
+        },
+      }
+    end
   }
 
 
