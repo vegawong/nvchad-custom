@@ -1,8 +1,7 @@
-
 return {
   -- override nvim-tree plugin init setting
   ["kyazdani42/nvim-tree.lua"] = {
-    cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFileToggle" }
+    cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFileToggle" },
   },
 
   -- override lsp config
@@ -14,9 +13,9 @@ return {
   },
 
   ["williamboman/mason.nvim"] = {
-   override_options = {
+    override_options = {
       ensure_installed = {
-        -- lua 
+        -- lua
         "lua-language-server",
         "stylua",
 
@@ -36,18 +35,41 @@ return {
   },
 
   ["goolord/alpha-nvim"] = {
-    disable = false
+    disable = false,
+    override_options = function()
+      return {
+        header = {
+          type = "text",
+          val = {
+            "                                                                                                                 ",
+            "                                                                                                                 ",
+            "  ███╗   ██╗ ██████╗     ██████╗ ██╗   ██╗ ██████╗     ███╗   ██╗ ██████╗     ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗",
+            "  ████╗  ██║██╔═══██╗    ██╔══██╗██║   ██║██╔════╝     ████╗  ██║██╔═══██╗    ██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝",
+            "  ██╔██╗ ██║██║   ██║    ██████╔╝██║   ██║██║  ███╗    ██╔██╗ ██║██║   ██║    ██║ █╗ ██║██║   ██║██████╔╝█████╔╝ ",
+            "  ██║╚██╗██║██║   ██║    ██╔══██╗██║   ██║██║   ██║    ██║╚██╗██║██║   ██║    ██║███╗██║██║   ██║██╔══██╗██╔═██╗ ",
+            "  ██║ ╚████║╚██████╔╝    ██████╔╝╚██████╔╝╚██████╔╝    ██║ ╚████║╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗",
+            "  ╚═╝  ╚═══╝ ╚═════╝     ╚═════╝  ╚═════╝  ╚═════╝     ╚═╝  ╚═══╝ ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝",
+            "                                                                                                                 ",
+            "                                                                                                                 ",
+          },
+          opts = {
+            position = "center",
+            hl = "AlphaHeader",
+          },
+        },
+      }
+    end,
   },
 
   ["jose-elias-alvarez/null-ls.nvim"] = {
-     after = "nvim-lspconfig",
-     config = function()
-       require "custom.plugins.null-ls"
-     end,
+    after = "nvim-lspconfig",
+    config = function()
+      require "custom.plugins.null-ls"
+    end,
   },
 
   ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = function() 
+    override_options = function()
       return {
         ensure_installed = {
           "lua",
@@ -60,12 +82,9 @@ return {
           "jsdoc",
           "php",
           "twig",
-          "markdown"
+          "markdown",
         },
       }
-    end
-  }
-
-
-
+    end,
+  },
 }
