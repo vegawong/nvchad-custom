@@ -87,4 +87,14 @@ return {
       }
     end,
   },
+
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = function()
+      return {
+        defaults = {
+          winblend=30
+        }
+      }
+    end
+  }
 }
