@@ -2,6 +2,13 @@ return {
   -- override nvim-tree plugin init setting
   ["kyazdani42/nvim-tree.lua"] = {
     cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+    override_options = function() 
+      return {
+        view = {
+          adaptive_size = false
+        }
+      }
+    end
   },
 
   -- override lsp config
