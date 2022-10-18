@@ -1,14 +1,28 @@
 return {
-  -- override nvim-tree plugin init setting
+
+  ["NvChad/ui"] = {
+    override_options = {
+      tabufline = {
+        lazyload = false,
+      },
+      statusline = {
+        separator_style = "round",
+        overriden_modules = function()
+          return require "custom.plugins.statusline"
+        end,
+      },
+    },
+  },
+
   ["kyazdani42/nvim-tree.lua"] = {
     cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFileToggle" },
-    override_options = function() 
+    override_options = function()
       return {
         view = {
-          adaptive_size = false
-        }
+          adaptive_size = false,
+        },
       }
-    end
+    end,
   },
 
   -- override lsp config
@@ -99,9 +113,9 @@ return {
     override_options = function()
       return {
         defaults = {
-          winblend=30
-        }
+          winblend = 30,
+        },
       }
-    end
-  }
+    end,
+  },
 }
