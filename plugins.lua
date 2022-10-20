@@ -1,5 +1,6 @@
 return {
 
+  -- 默认插件的设置覆盖
   ["NvChad/ui"] = {
     override_options = {
       tabufline = {
@@ -25,7 +26,6 @@ return {
     end,
   },
 
-  -- override lsp config
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -118,4 +118,37 @@ return {
       }
     end,
   },
+
+  -- 添加自定义插件
+  -- git blame
+  ["f-person/git-blame.nvim"] = {
+    config = function()
+      require "custom.plugins.git-blame"
+    end,
+  },
+
+  -- coplilot
+  ['github/copilot.vim'] = {
+    config = function()
+			-- copilot assume mapped
+			vim.g.copilot_assume_mapped = true
+			vim.g.copilot_no_tab_map = true
+		end
+  },
+
+  ['hrsh7th/cmp-copilot'] = {},
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = function() 
+      return {
+        sources = {
+          { name = "luasnip" },
+          { name = "nvim_lsp" },
+          { name = "buffer" },
+          { name = "nvim_lua" },
+          { name = "path" },
+          { name = "copilot"}
+        },
+      }
+    end
+  }
 }
