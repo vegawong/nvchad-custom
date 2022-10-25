@@ -51,6 +51,7 @@ return {
         -- shell
         "shfmt",
         "shellcheck",
+        "tailwindcss-language-server",
       },
     },
   },
