@@ -1,4 +1,5 @@
 return {
+  ["nvim-lua/plenary.nvim"] = { rm_default_opts = true },
 
   -- 默认插件的设置覆盖
   ["NvChad/ui"] = {
@@ -129,17 +130,17 @@ return {
   },
 
   -- coplilot
-  ['github/copilot.vim'] = {
+  ["github/copilot.vim"] = {
     config = function()
-			-- copilot assume mapped
-			vim.g.copilot_assume_mapped = true
-			vim.g.copilot_no_tab_map = true
-		end
+      -- copilot assume mapped
+      vim.g.copilot_assume_mapped = true
+      vim.g.copilot_no_tab_map = true
+    end,
   },
 
-  ['hrsh7th/cmp-copilot'] = {},
+  ["hrsh7th/cmp-copilot"] = {},
   ["hrsh7th/nvim-cmp"] = {
-    override_options = function() 
+    override_options = function()
       return {
         sources = {
           { name = "luasnip" },
@@ -147,9 +148,15 @@ return {
           { name = "buffer" },
           { name = "nvim_lua" },
           { name = "path" },
-          { name = "copilot"}
+          { name = "copilot" },
         },
       }
-    end
-  }
+    end,
+  },
+
+  ["sindrets/diffview.nvim"] = {
+    config = function()
+      vim.cmd "set fillchars+=diff:╱"
+    end,
+  },
 }
